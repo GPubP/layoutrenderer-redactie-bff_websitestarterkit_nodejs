@@ -1,0 +1,82 @@
+{
+  "name": "layoutrenderer-redactie-bff_websitestarterkit_nodejs",
+  "version": "1.0.0",
+  "description": "Layout renderer & redactie website starter kit build with ExpressJS, NextJS, Apollo GraphQL and the layout renderer.",
+  "main": "index.js",
+  "author": "nicolas@yapla.be",
+  "license": "ISC",
+  "scripts": {
+    "prestart": "npm run build:styles",
+    "start": "nodemon --ext js,json,yaml --exec babel-node src/index.js",
+    "build": "babel -d ./dist ./src --ignore '**/*.tests.js'",
+    "serve": "node dist/index.js",
+    "test": "echo Please, use command npm run tests;",
+    "tests": "cross-env NODE_ENV=test npm run runTests",
+    "test:watch": "cross-env NODE_ENV=test npm run runTestWatch",
+    "coverage": "cross-env NODE_ENV=test npm run runCoverage",
+    "prettier": "npx prettier --check ./src",
+    "lint": "eslint --fix ./src ",
+    "runTests": "jest",
+    "runTestWatch": "jest --watch",
+    "runCoverage": "jest --coverage",
+    "build:styles": "cpx \"./node_modules/@layout-renderer/widgets/widgets.css\" \"./public/assets\""
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "setupFilesAfterEnv": [
+      "./src/tests.setup.js"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run lint",
+      "npm run prettier"
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/core": "^7.17.5",
+    "@babel/node": "^7.16.8",
+    "@babel/plugin-transform-runtime": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-react": "^7.16.7",
+    "cross-env": "^7.0.3",
+    "eslint": "^7.32.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-jest": "^26.1.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^6.0.0",
+    "eslint-plugin-react": "^7.29.3",
+    "eslint-plugin-standard": "^5.0.0",
+    "husky": "^4.3.8",
+    "jest": "^27.5.1",
+    "lint-staged": "^12.3.5",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1",
+    "regenerator-runtime": "^0.13.9",
+    "supertest": "^6.2.2"
+  },
+  "dependencies": {
+    "@layout-renderer/core": "^4.0.12",
+    "@layout-renderer/datastores": "^4.0.1",
+    "@layout-renderer/layout-renderer": "4.0.0",
+    "@layout-renderer/widgets": "^4.0.24",
+    "apollo-datasource-rest": "^3.5.2",
+    "apollo-server-express": "^3.6.7",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3",
+    "graphql-type-json": "^0.3.2",
+    "helmet": "^5.0.2",
+    "morgan": "^1.10.0",
+    "next": "^12.1.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "winston": "^3.6.0"
+  }
+}
