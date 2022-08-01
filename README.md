@@ -2,11 +2,6 @@
 
 Starterkit website build with ExpressJS, NextJS, Apollo GraphQL and the layout renderer.
 
-DEV:
-
-ACC:
-
-PROD:
 
 ## 1 Local Development
 
@@ -84,10 +79,3 @@ Hotfixes are direct fixes from `master` branch (e.g. `hotfix/<NAME>`).
 - Layout renderer: New widgets should be defined in `src/views/components/Widgets.js`
 - Layouts are in `src/views/layouts`
 
-## 5 Deployment
-
-**Deployment method**: Bamboo
-
-**Appconfig**: TODO_YPL
-
-**Bamboo project**: TODO_YPL
